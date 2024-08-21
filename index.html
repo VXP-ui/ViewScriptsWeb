@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VXP Scripts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e67e22;
+      --background-color: #f0f0f0;
+      --text-color: #ecf0f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .script-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 30px;
+    }
+
+    .script-card {
+      background-color: #34495e;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .script-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .script-card h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+    }
+
+    .script-card pre {
+      background-color: #2c3e50;
+      border-radius: 4px;
+      padding: 20px;
+      text-align: left;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    .script-card button {
+      background-color: var(--secondary-color);
+      border: none;
+      color: var(--text-color);
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .script-card button:hover {
+      background-color: #d35400;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VXP Scripts</h1>
+  </header>
+  <main>
+    <div class="script-container">
+      <!-- Add your script cards here -->
+      <div class="script-card">
+        <h2>Universal Script</h2>
+        <pre>
+Universal Script UI, all the scripts here should be working, if they are not report in my discord. Script will be delayed in updates sometimes.
+        </pre>
+        <button onclick="copyToClipboard('loadstring(game:HttpGet('https://raw.githubusercontent.com/AC447724/StatusChecker/main/20vxp24sl12.lua'))()')">Copy to Clipboard</button>
+      </div>
+      <div class="script-card">
+        <h2>Project Scorpion Prieview</h2>
+        <pre>
+This is a preview of the script, almost no features will be here.
+        </pre>
+        <button onclick="-- ASCII art
+local art1 = [[
+▒█▀▀█ ▒█▀▀█ ▒█▀▀▀█ ░░░▒█ ▒█▀▀▀ ▒█▀▀█ ▀▀█▀▀
+999999000000▒█▄▄█ ▒█▄▄▀ ▒█░░▒█ ░▄░▒█ ▒█▀▀▀ ▒█░░░ ░▒█░░
+999999000000▒█░░░ ▒█░▒█ ▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄ ▒█▄▄█ ░▒█░░
+]]
+
+local art2 = [[
+▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀█ ▀█▀ ▒█▀▀▀█ ▒█▄░▒█
+000000000000░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█▄▄█ ▒█░ ▒█░░▒█ ▒█▒█▒█
+000000000000▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█░░░ ▄█▄ ▒█▄▄▄█ ▒█░░▀█
+]]
+
+-- Function to print the ASCII art to the console
+local function printAsciiArtToConsole()
+    -- Print the first part of the ASCII art
+    print(art1)
+    
+    -- Wait for a short duration before printing the second part
+    wait(0.5)
+    
+    -- Print the second part of the ASCII art
+    print(art2)
+end
+
+-- Call the function to print the ASCII art to the console
+printAsciiArtToConsole()
+
+
+
+print[[
+       ___ __
+     _{___{__}\
+    {_}      `\)
+   {_}        `            _.-''''--.._
+   {_}                    //'.--.  \___`.
+    { }__,_.--~~~-~~~-~~-::.---. `-.\  `.)
+     `-.{_{_{_{_{_{_{_{_//  -- 8;=- `
+        `-:,_.:,_:,_:,.`\\._ ..'=- ,
+            // // // //`-.`\`   .-'/
+     jgs   << << << <<    \ `--'  /----)
+            ^  ^  ^  ^     `-.....--'''
+]]
+
+
+
+
+
+
+
+
+
+
+game:GetService'StarterGui':SetCore("DevConsoleVisible", true)">Copy to Clipboard</button>
+      </div>
+      <div class="script-card">
+        <h2>Nothing Here Yet</h2>
+        <pre>
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet('Alice');
+        </pre>
+        <button onclick="copyToClipboard('function greet(name) {\n  console.log(`Hello, ${name}!`);\n}\n\ngreet(\'Alice\');')">Copy to Clipboard</button>
+      </div>
+      <div class="script-card">
+        <h2>Nothing Here Yet</h2>
+        <pre>
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  introduce() {
+    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+  }
+}
+
+const alice = new Person('Alice', 30);
+alice.introduce();
+        </pre>
+        <button onclick="copyToClipboard('class Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  introduce() {\n    console.log(`Hi, I\'m ${this.name} and I\'m ${this.age} years old.`);\n  }\n}\n\nconst alice = new Person(\'Alice\', 30);\nalice.introduce();')">Copy to Clipboard</button>
+      </div>
+      <div class="script-card">
+        <h2>Nothing Here Yet</h2>
+        <pre>
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+        </pre>
+        <button onclick="copyToClipboard('fetch(\'https://api.example.com/data\')\n  .then(response => response.json())\n  .then(data => {\n    console.log(data);\n  })\n  .catch(error => {\n    console.error(\'Error:\', error);\n  });')">Copy to Clipboard</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 VXP Networks. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          console.log('Script copied to clipboard!');
+        })
+        .catch(err => {
+          console.error('Failed to copy script: ', err);
+        });
+    }
+  </script>
+</body>
+</html>
