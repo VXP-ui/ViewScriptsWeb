@@ -1,249 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VXP Scripts</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #e67e22;
-      --background-color: #f0f0f0;
-      --text-color: #ecf0f1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VXP Scripts. . .</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #1a1a1a, #4CAF50);
+            color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--primary-color);
-      color: var(--text-color);
-    }
+        h1 {
+            text-align: center;
+            color: #00bcd4;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
 
-    header {
-      background-color: var(--primary-color);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            margin: 20px 0;
+            animation: fadeIn 0.8s ease-in-out;
+        }
 
-    header h1 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--text-color);
-    }
+        .script-box {
+            background-color: #2a2a2a;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: slideIn 0.5s ease-out;
+        }
 
-    main {
-      padding: 40px 20px;
-    }
+        .script-box:hover {
+            transform: translateY(-5px);
+            background-color: #3b3b3b;
+        }
 
-    .script-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-gap: 30px;
-    }
+        .script-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #00bcd4;
+            border-bottom: 2px solid #00bcd4;
+            padding-bottom: 5px;
+        }
 
-    .script-card {
-      background-color: #34495e;
-      border-radius: 8px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
+        .script-code {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre;
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+        }
 
-    .script-card:hover {
-      transform: translateY(-5px);
-    }
+        .copy-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 0.9em;
+        }
 
-    .script-card h2 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--secondary-color);
-    }
+        .copy-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
 
-    .script-card pre {
-      background-color: #2c3e50;
-      border-radius: 4px;
-      padding: 20px;
-      text-align: left;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      margin-bottom: 20px;
-      color: var(--text-color);
-    }
+        .success-message {
+            display: none;
+            color: #4CAF50;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            animation: fadeIn 0.5s forwards;
+        }
 
-    .script-card button {
-      background-color: var(--secondary-color);
-      border: none;
-      color: var(--text-color);
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    .script-card button:hover {
-      background-color: #d35400;
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      color: var(--text-color);
-      padding: 15px;
-      text-align: center;
-      font-size: 14px;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    }
-  </style>
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>VXP Scripts</h1>
-  </header>
-  <main>
-    <div class="script-container">
-      <!-- Add your script cards here -->
-      <div class="script-card">
-        <h2>Universal Script</h2>
-        <pre>
-Universal Script UI, all the scripts here should be working, if they are not report in my discord. Script will be delayed in updates sometimes.
-        </pre>
-        <button onclick="copyToClipboard('loadstring(game:HttpGet('https://raw.githubusercontent.com/AC447724/StatusChecker/main/20vxp24sl12.lua'))()')">Copy to Clipboard</button>
-      </div>
-      <div class="script-card">
-        <h2>Project Scorpion Prieview</h2>
-        <pre>
-This is a preview of the script, almost no features will be here.
-        </pre>
-        <button onclick="-- ASCII art
-local art1 = [[
-▒█▀▀█ ▒█▀▀█ ▒█▀▀▀█ ░░░▒█ ▒█▀▀▀ ▒█▀▀█ ▀▀█▀▀
-999999000000▒█▄▄█ ▒█▄▄▀ ▒█░░▒█ ░▄░▒█ ▒█▀▀▀ ▒█░░░ ░▒█░░
-999999000000▒█░░░ ▒█░▒█ ▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄ ▒█▄▄█ ░▒█░░
-]]
+    <div class="container">
+        <h1>VXP Scripts Scripts</h1>
 
-local art2 = [[
-▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀█ ▀█▀ ▒█▀▀▀█ ▒█▄░▒█
-000000000000░▀▀▀▄▄ ▒█░░░ ▒█░░▒█ ▒█▄▄▀ ▒█▄▄█ ▒█░ ▒█░░▒█ ▒█▒█▒█
-000000000000▒█▄▄▄█ ▒█▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█░░░ ▄█▄ ▒█▄▄▄█ ▒█░░▀█
-]]
+        <h2>Featured Scripts</h2>
 
--- Function to print the ASCII art to the console
-local function printAsciiArtToConsole()
-    -- Print the first part of the ASCII art
-    print(art1)
-    
-    -- Wait for a short duration before printing the second part
-    wait(0.5)
-    
-    -- Print the second part of the ASCII art
-    print(art2)
-end
+        <div class="script-box">
+            <div class="script-title">Main Universal Scrilt</div>
+            <div class="script-code">
+                <span id="script1">loadstring(game:HttpGet('https://raw.githubusercontent.com/AC447724/StatusChecker/main/20vxp24sl12.lua'))()</span>
+                <button class="copy-button" onclick="copyToClipboard('script1', 'success1')">Copy</button>
+            </div>
+            <p>Description: All round script for games!</p>
+            <div id="success1" class="success-message">Script copied to clipboard!</div>
+        </div>
 
--- Call the function to print the ASCII art to the console
-printAsciiArtToConsole()
+        <div class="script-box">
+            <div class="script-title">Project Scorpion</div>
+            <div class="script-code">
+                <span id="script2">Project Scorpion</span>
+                <button class="copy-button" onclick="copyToClipboard('script2', 'success2')">Copy</button>
+            </div>
+            <p>Description: Aimbot/Lock!</p>
+            <div id="success2" class="success-message">Uh Oh, script not found!</div>
+        </div>
 
-
-
-print[[
-       ___ __
-     _{___{__}\
-    {_}      `\)
-   {_}        `            _.-''''--.._
-   {_}                    //'.--.  \___`.
-    { }__,_.--~~~-~~~-~~-::.---. `-.\  `.)
-     `-.{_{_{_{_{_{_{_{_//  -- 8;=- `
-        `-:,_.:,_:,_:,.`\\._ ..'=- ,
-            // // // //`-.`\`   .-'/
-     jgs   << << << <<    \ `--'  /----)
-            ^  ^  ^  ^     `-.....--'''
-]]
-
-
-
-
-
-
-
-
-
-
-game:GetService'StarterGui':SetCore("DevConsoleVisible", true)">Copy to Clipboard</button>
-      </div>
-      <div class="script-card">
-        <h2>Nothing Here Yet</h2>
-        <pre>
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-
-greet('Alice');
-        </pre>
-        <button onclick="copyToClipboard('function greet(name) {\n  console.log(`Hello, ${name}!`);\n}\n\ngreet(\'Alice\');')">Copy to Clipboard</button>
-      </div>
-      <div class="script-card">
-        <h2>Nothing Here Yet</h2>
-        <pre>
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-
-  introduce() {
-    console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
-  }
-}
-
-const alice = new Person('Alice', 30);
-alice.introduce();
-        </pre>
-        <button onclick="copyToClipboard('class Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n\n  introduce() {\n    console.log(`Hi, I\'m ${this.name} and I\'m ${this.age} years old.`);\n  }\n}\n\nconst alice = new Person(\'Alice\', 30);\nalice.introduce();')">Copy to Clipboard</button>
-      </div>
-      <div class="script-card">
-        <h2>Nothing Here Yet</h2>
-        <pre>
-fetch('https://api.example.com/data')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-        </pre>
-        <button onclick="copyToClipboard('fetch(\'https://api.example.com/data\')\n  .then(response => response.json())\n  .then(data => {\n    console.log(data);\n  })\n  .catch(error => {\n    console.error(\'Error:\', error);\n  });')">Copy to Clipboard</button>
-      </div>
+        <div class="script-box">
+            <div class="script-title">Bring FE</div>
+            <div class="script-code">
+                <span id="script3">loadstring(game:HttpGet(('https://pastebin.com/raw/iThJgCAS'),true))()</span>
+                <button class="copy-button" onclick="copyToClipboard('script3', 'success3')">Copy</button>
+            </div>
+            <p>Description: Bring Players witj this Script!</p>
+            <div id="success3" class="success-message">Script copied to clipboard!</div>
+        </div>
     </div>
-  </main>
-  <footer>
-    <p>&copy; 2024 VXP Networks. All rights reserved.</p>
-  </footer>
 
-  <script>
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          console.log('Script copied to clipboard!');
-        })
-        .catch(err => {
-          console.error('Failed to copy script: ', err);
-        });
-    }
-  </script>
+    <script>
+        function copyToClipboard(scriptId, successId) {
+            const scriptText = document.getElementById(scriptId).innerText;
+            navigator.clipboard.writeText(scriptText).then(() => {
+                const successMessage = document.getElementById(successId);
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
